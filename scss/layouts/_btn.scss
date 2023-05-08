@@ -1,0 +1,413 @@
+.btn {
+    @include flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    padding: 0.8rem 1.6rem;
+    min-width: 10rem;
+    border-radius: 100rem;
+
+    img {
+        position: relative;
+        z-index: 3;
+        margin-left: 0.5rem;
+    }
+
+    .txt {
+        font-weight: 1.4rem;
+        line-height: 1.2;
+        color: $color-black;
+        transition: 0.4s;
+        @include fz-16;
+        display: block !important;
+
+        @include max(500px) {
+            @include fz-14;
+            white-space: nowrap;
+        }
+    }
+
+    &.center {
+        margin: auto;
+        margin-top: 2rem;
+    }
+
+    &-pri {
+        @extend .btn;
+        background-color: $color-pri;
+        width: max-content;
+        overflow: hidden;
+        border: 0.1rem solid $color-pri;
+
+        .txt {
+            color: $color-white;
+            line-height: 1;
+            z-index: 3;
+            margin-top: 0rem;
+            @include fz-16
+        }
+
+        &::after {
+            content: "";
+            background: $color-white;
+            position: absolute;
+            width: 100%;
+            height: 110%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            transform: scaleX(0);
+            transform-origin: center right;
+            transition: transform 0.5s ease;
+        }
+
+        @include min($res-mobile-min) {
+            @include hover {
+                .txt {
+                    color: $color-pri;
+                }
+
+                i {
+                    color: $color-pri;
+                }
+
+                &::after {
+                    transform: scale(1);
+                    transform-origin: center left;
+                }
+            }
+        }
+    }
+
+    &-second {
+        @extend .btn;
+        background-color: $color-second;
+        width: max-content;
+        overflow: hidden;
+
+        i {
+            color: $color-text;
+            margin-right: 0.5rem;
+            z-index: 3;
+            transition: 0.4s;
+        }
+
+        .txt {
+            color: $color-white;
+            line-height: 1;
+            z-index: 3;
+            margin-top: 0rem;
+            @include fz-16;
+        }
+
+        &::after {
+            content: "";
+            background: $color-pri;
+            position: absolute;
+            width: 100%;
+            height: 110%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            transform: scaleX(0);
+            transform-origin: center right;
+            transition: transform 0.5s ease;
+        }
+
+        @include min($res-mobile-min) {
+            @include hover {
+                .txt {
+                    color: $color-white;
+                }
+
+                i {
+                    color: $color-white;
+                }
+
+                &::after {
+                    transform: scale(1);
+                    transform-origin: center left;
+                }
+            }
+        }
+    }
+
+    &-gray {
+        @extend .btn;
+        background-color: #F5F5F5;
+        width: max-content;
+        overflow: hidden;
+
+        i {
+            color: $color-text;
+            margin-right: 0.5rem;
+            z-index: 3;
+            transition: 0.4s;
+        }
+
+        .txt {
+            color: $color-text;
+            line-height: 1;
+            z-index: 3;
+            margin-top: 0rem;
+            @include fz-16;
+        }
+
+        &::after {
+            content: "";
+            background: $color-second;
+            position: absolute;
+            width: 100%;
+            height: 110%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            transform: scaleX(0);
+            transform-origin: center right;
+            transition: transform 0.5s ease;
+        }
+
+        @include min($res-mobile-min) {
+            @include hover {
+                .txt {
+                    color: $color-white;
+                }
+
+                i {
+                    color: $color-white;
+                }
+
+                &::after {
+                    transform: scale(1);
+                    transform-origin: center left;
+                }
+            }
+        }
+    }
+    &-rs {
+        @extend .btn;
+        background-color: transparent;
+        width: max-content;
+        overflow: hidden;
+
+        i {
+            color: $color-text;
+            margin-right: 0.5rem;
+            z-index: 3;
+            transition: 0.4s;
+        }
+
+        .txt {
+            color: $color-text;
+            line-height: 1;
+            z-index: 3;
+            margin-top: 0rem;
+            @include fz-16;
+        }
+
+        &::after {
+            content: "";
+            background: $color-second;
+            position: absolute;
+            width: 100%;
+            height: 110%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            transform: scaleX(0);
+            transform-origin: center right;
+            transition: transform 0.5s ease;
+        }
+
+        @include min($res-mobile-min) {
+            @include hover {
+                .txt {
+                    color: $color-white;
+                }
+
+                i {
+                    color: $color-white;
+                }
+
+                &::after {
+                    transform: scale(1);
+                    transform-origin: center left;
+                }
+            }
+        }
+    }
+    &-yellow {
+        @extend .btn;
+        background-color: #F0A40E;
+        width: max-content;
+        overflow: hidden;
+
+        i {
+            color: $color-white;
+            margin-right: 0.5rem;
+            z-index: 3;
+            transition: 0.4s;
+        }
+
+        .txt {
+            color: $color-white;
+            line-height: 1;
+            z-index: 3;
+            margin-top: 0rem;
+            @include fz-16;
+        }
+
+        &::after {
+            content: "";
+            background: #0058CE;
+            position: absolute;
+            width: 100%;
+            height: 110%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            transform: scaleX(0);
+            transform-origin: center right;
+            transition: transform 0.5s ease;
+        }
+
+        @include min($res-mobile-min) {
+            @include hover {
+                .txt {
+                    color: $color-white;
+                }
+
+                i {
+                    color: $color-white;
+                }
+
+                &::after {
+                    transform: scale(1);
+                    transform-origin: center left;
+                }
+            }
+        }
+    }
+    &-blue {
+        @extend .btn;
+        background-color: #0058CE;
+        width: max-content;
+        overflow: hidden;
+
+        i {
+            color: $color-white;
+            margin-right: 0.5rem;
+            z-index: 3;
+            transition: 0.4s;
+        }
+
+        .txt {
+            color: $color-white;
+            line-height: 1;
+            z-index: 3;
+            margin-top: 0rem;
+            @include fz-16;
+        }
+
+        &::after {
+            content: "";
+            background: #F0A40E;
+            position: absolute;
+            width: 100%;
+            height: 110%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            transform: scaleX(0);
+            transform-origin: center right;
+            transition: transform 0.5s ease;
+        }
+
+        @include min($res-mobile-min) {
+            @include hover {
+                .txt {
+                    color: $color-white;
+                }
+
+                i {
+                    color: $color-white;
+                }
+
+                &::after {
+                    transform: scale(1);
+                    transform-origin: center left;
+                }
+            }
+        }
+    }
+
+    &-prev,
+    &-next {
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 100rem;
+        flex-shrink: 0;
+        @include mid-flex;
+        background-color: #FF0076;
+        transition: 0.4s;
+        cursor: pointer;
+
+        i {
+            transition: 0.4s;
+            @include fz-10;
+            font-weight: 500;
+            color: $color-white;
+        }
+
+        &.current {
+            background-color: #FF0076;
+            pointer-events: none;
+
+            i {
+                color: $color-white;
+            }
+        }
+
+        &.swiper-button-disabled {
+            background-color: $color-white;
+            pointer-events: none;
+
+            i {
+                color: $color-text;
+            }
+        }
+
+        @include hover {
+            background-color: #FF0076;
+
+            i {
+                color: $color-white;
+            }
+        }
+    }
+
+
+}
+
+.load-btn {
+    width: fit-content;
+    margin-top: 2.4rem;
+    cursor: pointer;
+
+    .text {
+        color: $color-text;
+    }
+
+    i {
+        @include fz-14;
+        transition: 0.4s;
+        color: $color-text;
+    }
+
+    &.active {
+        i {
+            transform: rotate(180deg);
+        }
+    }
+}

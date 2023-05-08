@@ -1,0 +1,102 @@
+.breadcrumb-white {
+    .breadcrumb-item {
+
+        &::before {
+            color: $color-white;
+        }
+
+        @include hover {
+            .breadcrumb-link {
+                color: $color-second;
+            }
+        }
+
+        .breadcrumb-link {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        &:last-child {
+            .breadcrumb-link {
+                color: $color-white;
+                opacity: 1;
+            }
+        }
+
+    }
+}
+
+.breadcrumb {
+    border-radius: 0.4rem;
+    padding: 2.4rem 0;    
+    &-list {
+        @include flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        max-width: 100%;
+
+        &::-webkit-scrollbar {
+            height: 0;
+        }
+    }
+
+    &-item {
+        position: relative;
+        @include flex;
+        align-items: center;
+
+        &:first-child {
+            padding-left: 2rem;
+            &::after {
+                content: '';
+                background-image: url("../assets/images/home.svg");
+                @include default-background;
+                width: 1.6rem;
+                height: 1.6rem;
+                left: 0;
+                position: absolute;
+            }
+            &::before {
+                display: none;
+            }
+        }
+
+        &:last-child {
+            a {
+                color: $color-second;
+                pointer-events: none;
+                @include lc(1);
+                max-width: 30rem;
+                white-space: unset;
+
+            }
+
+            &::before {
+                color: #5F5F5F;
+
+            }
+        }
+
+        &::before {
+            content: '\f054';
+            font-family: "Font Awesome 6 Pro";
+            margin-right: 0.8rem;
+            margin-left: 0.8rem;
+            color: #5F5F5F;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        a {
+            color: #5F5F5F;
+            @include fz-14;
+            transition: 0.4s;
+            font-weight: 700;
+            white-space: nowrap;
+
+            @include hover {
+                color: $color-pri;
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'SVN-Vantom';
+    src: url('SVN-Vantom.woff2') format('woff2'),
+        url('SVN-Vantom.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

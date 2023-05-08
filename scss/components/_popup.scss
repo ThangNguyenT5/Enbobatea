@@ -1,0 +1,310 @@
+.popup {
+    position: fixed;
+    @include full;
+    z-index: 80;
+    visibility: hidden;
+
+    &.open {
+        visibility: visible;
+
+        .popup-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-main {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &-overlay {
+        position: absolute;
+        background-color: rgba($color: $color-black, $alpha: 0.8);
+        @include full;
+        z-index: 1;
+        @include transitionRe;
+        opacity: 0;
+        visibility: hidden;
+        // backdrop-filter: blur(0.3rem)
+    }
+
+    &-main {
+        @include mid;
+        z-index: 2;
+        width: 90rem;
+        max-height: 90vh;
+        max-width: 95%;
+        @include transitionRe;
+        opacity: 0;
+        visibility: hidden;
+        position: relative;
+        // background-color: $color-white;
+        border-radius: 1.6rem;
+        // padding: 1rem 0;
+        background-color: $color-white;
+
+        &.med {
+            width: 90rem;
+        }
+
+        &.small {
+            width: 80rem;
+        }
+    }
+
+    &-over {
+        overflow-y: auto;
+        min-height: 40vh;
+        max-height: 80vh;
+    }
+
+    &-wrapper {
+        width: 100%;
+        min-height: 40vh;
+        position: relative;
+        border-radius: 6px;
+        @include mid-flex;
+    }
+
+    &-title {
+        @include fz-24;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 1.6rem;
+    }
+
+    &-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+        transition: 0.6s ease-in-out;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 100rem;
+        @include mid-flex;
+        background-color: $color-second;
+        z-index: 3;
+
+        &:hover {
+            .icon {
+                transform: rotate(360deg);
+            }
+        }
+
+        .icon {
+            color: $color-white;
+            font-weight: 300;
+            font-size: 2.4rem;
+            @include transition(0.6s, ease-in-out);
+
+            @include max(800px) {
+                @include fz-16;
+            }
+        }
+    }
+
+    &-search {
+        height: 100%;
+        width: 100%;
+
+        &-box {
+            width: 50rem;
+            max-width: 100%;
+
+            .popup-over {
+                min-height: 20rem;
+            }
+
+            .popup-wrapper {
+                min-height: 20rem;
+            }
+        }
+
+        &-input {
+            height: 4.5rem;
+            width: 90%;
+            margin: auto;
+            background-color: #EBEBEB;
+            @include flex;
+            border-radius: 100rem;
+            padding: 0.2rem;
+
+            input {
+                width: 100%;
+                height: 100%;
+                background-color: transparent;
+                border: none;
+                padding: 1rem 1.6rem;
+            }
+
+            @include max(600px) {
+                display: block;
+
+                .btn {
+                    width: 100%;
+                    height: 4.5rem;
+                    display: block;
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+
+    &-price {
+        width: 100%;
+        padding: 4rem;
+        @include max(400px) {
+            padding: 4rem 1rem;
+        }
+        &-box {
+            padding: 1rem 0;
+        }
+        &-tt {
+            @include fz-24;
+            font-weight: 600;
+            border-bottom: 0.1rem solid $color-border;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        &-form {
+            width: 100%;
+        }
+
+        .popup-file {
+            margin-top: 2rem;
+            @include flex;
+            @include max(600px) {
+                flex-wrap: wrap;
+            }
+            &-box {
+                @include max(600px) {
+                    width: 100%;
+                }
+                .tt {
+                    font-weight: 500;
+                    margin-bottom: 1rem;
+
+                    &-r {
+                        margin-left: 1.2rem;
+                    }
+                }
+            }
+
+            &-img {
+                width: 30%;
+                height: 100%;
+                margin-left: auto;
+                @include max(600px) {
+                    width: 100%;
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            &-ip {
+                @include flex;
+                align-items: center;
+                margin-bottom: 1rem;
+
+                .btn {
+                    height: 4rem;
+                    border-radius: 0.8rem;
+                    @include hover {
+                        .icon {
+                            img {
+                                filter: grayscale(1) invert(1);
+                            }
+                        }
+                    }
+                    .icon {
+                        width: 1.6rem;
+                        height: 1.6rem;
+                        margin-top: -0.2rem;
+                        margin-left: 0.5rem;
+
+                        img {
+                            width: 1.6rem;
+                            height: 1.6rem;
+                        }
+                    }
+                }
+
+                .file-name {
+                    color: #999999;
+                    margin-left: 0.8rem;
+                }
+            }
+        }
+
+        &-send {
+            @include flex;
+            align-items: center;
+            margin-top: 2rem;
+
+            .btn {
+                height: 4rem;
+                border-radius: 0.8rem;
+                @include max(500px) {
+                    width: 50%;
+                }
+                &:not(:first-child) {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+    &-pricelist {
+        width: 100%;
+        padding: 2rem 0;
+        &-wr {
+            width: 100vw;
+        }
+    }
+    &-password {
+        width: 100%;
+        &-box {
+            width: 46.2rem;
+        }
+        padding: 3.2rem;
+        .tt {
+            @include fz-24;
+            font-weight: 500;
+            color: $color-second;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 0.1rem solid $color-border;
+        }
+        .desc {
+            color: #4D4D4D;
+            font-style: italic;
+            margin-bottom: 2.4rem;
+        }
+        .input {
+            &:not(:first-child) {
+                margin-top: 1.6rem;
+            }
+            input {
+                padding: 1rem 2rem;
+                background-color: #F0F0F0;
+                border-radius: 0.8rem;
+                border:0.1rem solid transparent;
+                width: 100%;
+                transition: 0.4s;
+                
+            }
+        }
+        .btn {
+            min-width: 17.7rem;
+            height: 4.4rem;
+            margin: auto;
+            margin-top: 3.3rem;
+        }
+    }
+}

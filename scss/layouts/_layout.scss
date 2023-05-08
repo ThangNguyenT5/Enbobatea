@@ -1,0 +1,923 @@
+// .tabBtn {
+//     cursor: pointer;
+// }
+
+// .tabLink {
+//     display: none;
+
+//     &.open {
+//         animation: fadeUp 1s linear;
+//         display: flex;
+//     }
+// }
+
+// .tabPanel {
+//     display: none;
+
+//     &.open {
+//         animation: fadeUp 1s linear;
+//         display: block;
+//     }
+// }
+.main {
+    padding-top: var(--height);
+}
+
+.tabJS {}
+
+.tabBtn {
+    cursor: pointer;
+}
+
+.tabLink {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+
+    &.open {
+        opacity: 1;
+        position: relative;
+    }
+}
+
+.tabPanel {
+    position: absolute !important;
+    // overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    transition: 0.7s;
+    display: block !important;
+    z-index: 2;
+
+    &.open {
+        animation: none;
+        position: relative !important;
+        opacity: 1;
+        pointer-events: visible;
+
+        .contentTab {
+            animation: tabRight 0.5s ease-in-out forwards;
+            animation-delay: 0.2s;
+        }
+
+    }
+
+    .contentTab {
+        animation: tabLeft 0.5s ease-in-out forwards;
+        opacity: 0;
+    }
+
+}
+
+.mona-content {
+    h3 {
+        font-weight: bold;
+        margin: 1rem 0;
+        @include fz-24;
+    }
+
+    p {
+        margin: 1rem 0;
+        color: $color-text;
+        word-break: break-word;
+    }
+
+    .green {
+        color: $color-four;
+        font-weight: bold;
+    }
+
+    .img {
+        width: 100%;
+        margin: 1rem 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+    }
+
+    ul {
+        li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &::after {
+                content: '';
+                width: 0.4rem;
+                height: 0.4rem;
+                border-radius: 100rem;
+                background-color: $color-text;
+                left: 0.5rem;
+                top: 0.9rem;
+                position: absolute;
+            }
+        }
+    }
+
+    #toc_container {
+        background: #E5EEEA;
+        padding: 3.2rem;
+        width: 100%;
+        border: none;
+        border-radius: 0.8rem;
+        margin-top: 2rem;
+
+        .toc_list {
+            li {
+                &:not(:first-child) {
+                    margin-top: 1rem;
+                }
+
+                &::after {
+                    display: none;
+                }
+
+                >a {
+                    transform: 0.4s;
+                    text-decoration: none !important;
+
+                    @include hover {
+                        color: $color-third;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.img-animated {
+    &::after {
+        content: '';
+        position: absolute;
+        height: 50%;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        left: 0;
+        top: 0;
+        transition: 1s ease-in-out;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: 50%;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        left: 0;
+        bottom: 0;
+        transition: 1s ease-in-out;
+        z-index: 2;
+    }
+
+    &.is-inview {
+
+        &::after,
+        &::before {
+            height: 0;
+        }
+    }
+}
+
+
+#lg-download {
+    display: none;
+}
+
+#lg-actual-size {
+    display: none;
+}
+
+.wp-block-table {
+    &::-webkit-scrollbar {
+        height: 0.2rem;
+    }
+
+    table {
+        min-width: 70rem;
+    }
+}
+
+.mona-cus-title {
+    width: 100% !important;
+}
+
+//collapse
+.collapse-body {
+    display: none;
+}
+
+//date
+.ui-datepicker .ui-datepicker-prev {
+    cursor: pointer;
+
+    &::after {
+        content: "\f053";
+        font-family: "Font Awesome 5 Pro";
+        color: $color-white;
+        position: absolute;
+        @include mid;
+    }
+
+    .ui-icon {
+        background-image: url("");
+        background-position: center;
+        background-size: contain;
+
+    }
+}
+
+.ui-datepicker .ui-datepicker-next {
+    cursor: pointer;
+
+    &::after {
+        content: "\f054";
+        font-family: "Font Awesome 5 Pro";
+        color: $color-white;
+        position: absolute;
+        @include mid;
+    }
+
+    .ui-icon {
+        background-image: url("");
+        background-position: center;
+        background-size: contain;
+
+    }
+}
+
+.ui-widget-header .ui-icon {
+    background-image: url("");
+    background-position: center;
+    background-size: contain;
+}
+
+.ui-datepicker-header {
+    background: linear-gradient(90deg, #f72ec8 0.49%, #4CCFFF 100%);
+    color: $color-white;
+}
+
+.ui-datepicker-unselectable .ui-state-default {
+    text-align: center;
+}
+
+.ui-datepicker-unselectable {
+    .ui-state-default {
+        background-color: transparent;
+        color: $color-pri;
+        border-color: transparent;
+    }
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default {
+    background-color: transparent;
+    text-align: center;
+    border: none;
+    font-weight: 700;
+}
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight {
+    background-color: transparent;
+    color: $color-five;
+    border: none;
+    text-align: center;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active {
+    background: linear-gradient(90deg, #f72ec8 0.49%, #4CCFFF 100%);
+    color: $color-white;
+    text-align: center;
+    border-radius: 0.4rem;
+}
+
+.ui-widget.ui-widget-content {
+    background-color: $color-white;
+    box-shadow: 0 0 1rem rgba(68, 68, 68, 0.3);
+    border: none;
+    position: relative;
+    border: 0.1rem solid rgba(59, 222, 255, 0.5);
+    border-radius: 0.8rem;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover {
+    background-color: $color-five;
+    background: linear-gradient(90deg, #f72ec8 0.49%, #4CCFFF 100%);
+    border-radius: 0.4rem;
+    border: none;
+    color: $color-white;
+}
+
+button {
+    padding: 0;
+    background-color: transparent;
+}
+
+.wp-block-media-text__media img {
+    border-radius: 1.6rem;
+}
+
+.wp-block-separator {
+    border: none !important;
+    border-bottom: 0.1rem solid rgba(68, 68, 68, 0.3) !important;
+}
+
+
+//Hover effect
+.item-hover-effect {
+    @include flex;
+}
+
+.item {
+    width: 300px;
+    height: 300px;
+}
+
+.img {
+    &-inner {
+        padding-top: 100%;
+    }
+}
+
+.img-shine {
+    position: relative;
+    overflow: hidden;
+
+    @include hover {
+        &::after {
+            animation: shine2 0.5s linear forwards;
+            width: 200%;
+            left: 100%;
+        }
+    }
+
+    &::after {
+        content: '';
+        width: 0%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        position: absolute;
+        left: -50%;
+        top: 0;
+        transition: 0.75s;
+        opacity: 0;
+        @include transform(skew(30deg));
+    }
+}
+
+.img-rec {
+    position: relative;
+    overflow: hidden;
+
+    @include hover {
+        .content {
+            width: 100%;
+            height: 100%;
+
+            p {
+                opacity: 1;
+                @include transform(translateY(0));
+                transition-delay: 0.7s;
+            }
+
+            &::after {
+                width: 90%;
+                height: 90%;
+                border-color: $color-white;
+                transition-delay: 0.3s;
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+        }
+    }
+
+    .content {
+        position: absolute;
+        @include mid;
+        width: 100%;
+        height: 100%;
+        transition: 0.4s;
+        padding: 2rem;
+
+        p {
+            position: relative;
+            transition: inherit;
+            color: white;
+            @include transform(translateY(2rem));
+            opacity: 0;
+            transition-delay: 0s;
+        }
+
+        &::after {
+            content: '';
+            width: 0%;
+            height: 0%;
+            position: absolute;
+            @include mid;
+            border: 0.1rem solid transparent;
+            transition: inherit;
+            z-index: -1;
+        }
+    }
+}
+
+.zoom-in {
+    @include hover-image-zoom(0.3s, ease-in-out);
+
+    img {
+        @include imgCover;
+        @include transform(translate(-50%, -50%) scale(1.1))
+    }
+}
+
+.move-left {
+    @include hover-image-left(0.3s, ease-in-out);
+
+    img {
+        @include imgCover;
+        width: calc(100% + 50px);
+        max-width: none;
+        @include transform(translate(-50%, -50%))
+    }
+}
+
+// margin
+.mt4 {
+    margin-top: 4rem;
+}
+
+// padding
+.sc-pd {
+    padding: 4rem 0;
+}
+
+.sc-pdb {
+    padding-bottom: 4rem;
+}
+
+.sc-pdt {
+    padding-top: 4rem;
+}
+
+.sc-pd8 {
+    padding: 8rem 0;
+
+    @include max($res-mobile) {
+        padding: 4rem 0;
+    }
+}
+
+.sc-pdt8 {
+    padding-top: 8rem;
+
+    @include max($res-mobile) {
+        padding-top: 4rem;
+    }
+}
+
+.mb4 {
+    margin-bottom: 4rem;
+
+    @include max($res-mobile) {
+        margin-bottom: 2rem;
+    }
+}
+
+//blur 
+.blur {
+    opacity: 0;
+
+    &.is-inview {
+        -webkit-animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+}
+
+//toast
+.toast {
+    @include flex;
+    align-items: center;
+    max-width: 100%;
+    min-width: 20rem;
+    padding: 1.2rem 2.4rem;
+    padding-right: 4rem;
+    width: fit-content;
+    border-radius: 1rem;
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    position: relative;
+
+    &.success {
+        background-color: #ceffb5;
+
+        .toast-txt {
+            color: green
+        }
+
+        .toast-close {
+            color: green;
+        }
+    }
+
+    &.error {
+        background-color: #fca1a1;
+
+        .toast-txt {
+            color: red
+        }
+
+        .toast-close {
+            color: red;
+        }
+    }
+
+    &.warn {
+        background-color: #fcf6a1;
+
+        .toast-txt {
+            color: rgb(255, 162, 0);
+        }
+
+        .toast-close {
+            color: rgb(255, 162, 0);
+        }
+    }
+
+    &-txt {
+        @include fz-14;
+        font-weight: 600;
+    }
+
+    &-close {
+        font-weight: 400;
+        margin-left: auto;
+        cursor: pointer;
+        width: 1.6rem;
+        height: 1.6rem;
+        @include mid-flex;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.3rem;
+    }
+
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+}
+
+//
+
+
+
+
+// pagination
+.pagimain {
+    margin-top: 4rem;
+}
+
+
+
+.scrollDeskJS {
+    cursor: grab;
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    &::-webkit-scrollbar {
+        height: 0;
+    }
+}
+
+// collapse
+
+.collapse {
+    &-itemf {
+        &.active {
+            .collapse-body {
+                display: block;
+            }
+        }
+    }
+
+    &-bodyf {
+        display: block;
+    }
+}
+
+// set grid
+.setY {
+    --gutter-x: 2.4rem;
+    --gutter-y: 2.4rem;
+
+    @include max($res-mobile) {
+        --gutter-x: 1.6rem;
+        --gutter-y: 2.4rem;
+    }
+
+    @include max(800px) {
+        --gutter-x: 0.8rem;
+        --gutter-y: 2.4rem;
+    }
+}
+
+.setN {
+    --gutter-x: 2.4rem;
+    --gutter-y: 2.4rem;
+
+    @include max($res-mobile) {
+        --gutter-x: 1.6rem;
+        --gutter-y: 1.6rem;
+    }
+
+    @include max(800px) {
+        --gutter-x: 0.8rem;
+        --gutter-y: 0.8rem;
+    }
+}
+
+.setsmallG {
+    --gutter-x: 0.6rem;
+    --gutter-y: 0.6rem;
+}
+
+.setGF {
+    --gutter-x: 2.4rem;
+    --gutter-y: 4rem;
+
+    @include max($res-mobile) {
+        --gutter-x: 1.6rem;
+        --gutter-y: 3rem;
+    }
+
+    @include max(800px) {
+        --gutter-x: 1.6rem;
+        --gutter-y: 2rem;
+    }
+}
+
+
+// gsap
+.prl-scroll {
+    overflow: hidden;
+
+    img {
+        height: 150% !important;
+    }
+}
+
+.zoom {
+    img {
+        animation: zoomInf 40s linear infinite;
+    }
+}
+
+.title {
+    &-svg {
+        height: 3.5rem;
+        margin: auto;
+        width: fit-content;
+        overflow: hidden;
+
+        &.is-inview {
+            .title-svg-inner {
+                transform: translateY(0);
+            }
+        }
+
+        &-inner {
+            width: fit-content;
+            height: inherit;
+            transition: 0.8s all;
+            transform: translateY(100%);
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+// form
+.form {
+    &-list {
+        // --gutter-x: 0.8rem;
+        // --gutter-y: 0.8rem;
+        align-items: end;
+    }
+
+    &-ip {
+        width: 100%;
+
+        .text {
+            color: $color-text;
+            margin-bottom: 0.8rem;
+            display: block;
+            @include fz-16;
+            font-weight: 500;
+        }
+
+        &-per75 {
+            width: 75%;
+
+            @include max(800px) {
+                width: 100%;
+            }
+
+            @include max(600px) {
+                width: 100%;
+            }
+        }
+
+        &.per5 {
+            width: 50%;
+
+            @include max(800px) {
+                width: 100%;
+            }
+
+            @include max(600px) {
+                width: 100%;
+            }
+        }
+
+        &.per3 {
+            width: calc(100%/3);
+
+            @include max(600px) {
+                width: 100%;
+            }
+        }
+
+        &.per25 {
+            width: 25%;
+
+            @include max(600px) {
+                width: 100%;
+            }
+        }
+
+        &.datetime {
+            position: relative;
+
+            &::after {
+                content: '';
+                background-image: url("../assets/images/calendar.png");
+                @include default-background;
+                width: 2rem;
+                height: 2rem;
+                position: absolute;
+                right: 2rem;
+                top: 58%;
+            }
+        }
+
+
+        input,
+        textarea,
+        select {
+            border: none;
+            outline: none;
+            color: $color-text;
+            width: 100%;
+            background-color: #F5F5F5;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 0.8rem;
+            padding: 0.8rem 2rem;
+            @include fz-16;
+
+            @include input-placeholder {
+                color: #666666;
+            }
+
+        }
+
+        textarea {
+            min-height: 13.7rem;
+        }
+
+        input[type="date"]::-webkit-inner-spin-button,
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            margin-right: 1rem;
+            pointer-events: none;
+            display: none;
+        }
+
+        input[type="date"] {
+            cursor: text;
+        }
+
+        .label-ip {
+            border: none;
+            outline: none;
+            color: $color-white;
+            width: 100%;
+            height: 4.4rem;
+            background: linear-gradient(360deg, #d3fcff -137.5%, rgba(255, 255, 255, 0) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 0.8rem;
+            display: block;
+            padding: 1rem;
+            cursor: pointer;
+
+            .label-txt {
+                @include lc(1);
+            }
+        }
+
+        .btn-linear {
+            margin-top: auto;
+            margin-left: auto;
+        }
+
+        &.hasbtn {
+            @include flex;
+        }
+
+        &.upfile {
+            >label {
+                position: relative;
+
+                &::after {
+                    content: "";
+                    width: 1.6rem;
+                    height: 1.6rem;
+                    background-image: url("../assets/images/iconupload.svg");
+                    @include default-background;
+                    position: absolute;
+                    right: 1rem;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+
+        .input {
+            @include flex;
+            position: relative;
+
+            .seepassJS {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 1rem;
+            }
+        }
+
+    }
+
+}
+
+
+.home-title-as {
+    @include fz-90;
+    color: $color-white;
+    @include font-second;
+    text-transform: uppercase;
+}
+
+.mga {
+    margin: auto;
+}
+
+.ofhd {
+    overflow: hidden;
+    width: 100%;
+
+    @include min($res-mobile-min) {
+        height: 100vh;
+    }
+}
+
+// vertical Scroll
+.scroll-container {
+    /* Chiều cao của khung nắm kéo */
+    // overflow-y: scroll;
+    /* Bật tính năng scroll */
+}
+
+.scroll-handle {
+    user-select: none;
+    /* Ngăn người dùng chọn văn bản khi kéo chuột */
+    will-change: transform;
+    /* Xác định phần tử sẽ thay đổi khi kéo chuột */
+}
