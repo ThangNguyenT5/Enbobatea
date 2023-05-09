@@ -312,21 +312,24 @@ export default function SwiperModule() {
     const bnSlider = document.querySelector('.bnner-slide');
     if (bnSlider) {
         var bnnerThumb = new Swiper(".thumb-swiper", {
+            // speed: 1000,
             spaceBetween: 10,
             slidesPerView: 3,
             freeMode: true,
             watchSlidesProgress: true,
           });
-          var bnnerSwiper = new Swiper(".bnner-swiper", {
-              // spaceBetween: 10,
-              loop: true,
+
+        var bnnerSwiper = new Swiper(".bnner-swiper", {
+            // spaceBetween: 10,
+            // speed: 1000,
+            loop: true,
             effect: 'fade',
             fadeEffect: {
                 crossFade: true
             },
             navigation: {
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
             pagination: {
                 el: ".swiper-pagination",
@@ -337,9 +340,9 @@ export default function SwiperModule() {
             },
             
             thumbs: {
-              swiper: bnnerThumb,
+                swiper: bnnerThumb,
             },
-          });
+        });
     }
 
 }
