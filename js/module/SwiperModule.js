@@ -263,52 +263,8 @@ export default function SwiperModule() {
         clickable: true,
     },
     });
-    // a
-    // const bnHome = document.querySelector('.banner-swiper');
-    // if (bnHome) {
-    //     const numCount = bnHome.querySelector('.num');
-    //     var bannerSwiper = new Swiper(".banner-swiper", {
-    //         speed:1000,
-    //         pagination: {
-    //           el: ".swiper-pagination",
-    //           clickable: true,
-    //           renderBullet: function (index, className) {
-    //             return '<span class="' + className + '">'+ '0' + (index + 1) + "</span>";
-    //         }
-    //         },
-    //         navigation: {
-    //           nextEl: ".swiper-button-next",
-    //           prevEl: ".swiper-button-prev",
-    //         },
-    //       });
-    //       const bnHomeIt = bnHome.querySelectorAll ('.bn-it');
-          
-    //       if (bnHomeIt) {
-    //         bnHomeIt.forEach ((bnIt) => {
-    //             const thumbIt = bnIt.querySelector('.thumb-swiper');
-    //             const thumbSwiper = new Swiper(thumbIt, {
-    //                 slidesPerView: "auto",
-    //                 speed:1000,
+    // home-bn
 
-    //                 // freeMode: true,
-    //                 // watchSlidesProgress: true,
-    //                 });
-                
-    //             const galleryIt = bnIt.querySelector('.banner-swiper-gallery');
-                
-    //             const gallerySwiper = new Swiper(galleryIt, {
-    //                 spaceBetween: 24,
-    //                 speed:1000,
-
-    //                 thumbs: {
-    //                     swiper: thumbSwiper,
-    //                 },
-    //                 });    
-    //         })
-    //       }
-    // }
-
-    // b
     const bnSlider = document.querySelector('.bnner-slide');
     if (bnSlider) {
         var bnnerThumb = new Swiper(".thumb-swiper", {
@@ -321,7 +277,7 @@ export default function SwiperModule() {
 
         var bnnerSwiper = new Swiper(".bnner-swiper", {
             // spaceBetween: 10,
-            // speed: 1000,
+            speed: 1000,
             loop: true,
             effect: 'fade',
             fadeEffect: {
